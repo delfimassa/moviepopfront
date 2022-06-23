@@ -1,0 +1,89 @@
+.titleAndImg img {
+    width: 100%;
+    object-fit: cover;
+    margin-top: 1rem;
+    border-radius: 10px;
+}
+
+/*MEDIA QUERIES*/
+/*X-SMALL DEVICES */
+@media all and (max-width: 576px) {}
+
+/*SMALL DEVICES*/
+@media all and (min-width: 576px) and (max-width: 767px) {}
+
+/*MEDIUM DEVICES*/
+@media all and (min-width: 767px) and (max-width: 991px) {
+    .contenedorDetail {
+        padding: 2rem 0rem 0rem 0rem;
+    }
+
+    .gameDeetGrid {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .titleAndImg {
+        text-align: start;
+        padding-right: 2rem;
+    }
+    .details {
+        margin-top: 1rem;
+        text-align: start;
+    }
+
+}
+
+/*LARGE DEVICES*/
+@media all and (min-width: 991px) and (max-width: 1200px) {
+    .contenedorDetail {
+        padding: 2rem 0rem 0rem 0rem;
+    }
+
+    .gameDeetGrid {
+        display: grid;
+        grid-template-columns: 40% 60%;
+    }
+
+    .titleAndImg {
+        text-align: start;
+        padding-right: 2rem;
+    }
+    .details {
+        margin-top: 1rem;
+        text-align: start;
+    }
+}
+
+/*XTRA LARGE DEVICES*/
+@media all and (min-width: 1200px) {
+    .contenedorDetail {
+        padding: 0rem 5rem 5rem 5rem;
+    }
+
+    .gameDeetCard {
+        padding: 2rem;
+    }
+
+    .gameDeetGrid {
+        display: grid;
+        grid-template-columns: 35% 65%;
+    }
+
+    .titleAndImg {
+        text-align: start;
+        padding-right: 2rem;
+    }
+
+    .titleAndImg img {
+        width: 100%;
+        object-fit: cover;
+        margin-top: 1rem;
+        border-radius: 10px;
+    }
+
+    .details {
+        margin-top: 2rem;
+        text-align: start;
+    }
+}

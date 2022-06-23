@@ -1,31 +1,55 @@
-.searchBar{
-    background-color: #294056 !important;
-    border: none !important;
-    border-radius: 0.5rem !important;
-  }
-  .searchBar::placeholder{
-    color:#F3F4F5!important;
-  }
-  .searchBar:focus, .btn:focus{
-    background-color: #3a4957 !important;
-    border: none !important;
-    border-radius: 0.5rem !important;
-    outline: none !important;
-    box-shadow: none!important;
-  }
-
-  .loader{
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin-left:-100px;
-    margin-top:-50px
+.searchBar {
+  background-color: #294056 !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
 }
 
-/* .imagenes{
+.searchBar::placeholder {
+  color: #F3F4F5 !important;
+}
+
+.searchBar:focus,
+.btn:focus {
+  background-color: #3a4957 !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -100px;
+  margin-top: -50px
+}
+
+.imagenes {
   width: 100%;
-  height: 165px;
   overflow: hidden;
-  border-radius: 8px;
-  object-fit: cover;
-} */
+  border-radius: 0.9rem;
+  margin: 0rem 0rem 1rem 0rem;
+}
+
+.imagenes:hover {
+  filter: drop-shadow(10px 10px 5px #3a4957);
+}
+
+.card {
+  margin-bottom: 2rem !important;
+  border: none !important;
+  border-radius: 0.5rem !important;
+  background-color: #1B334A !important;
+  color: #fce945 !important;
+}
+
+.card:hover {
+  color: #EDBE00!important;
+  transition: 0.200s;
+  transform: translateY(-0.7rem);
+}
+
+.titulos {
+  text-decoration: none !important;
+}

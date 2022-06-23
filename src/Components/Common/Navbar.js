@@ -38,14 +38,14 @@ const Header = () => {
               <FontAwesomeIcon
                 className="mx-2 headericons"
                 icon={faHouseChimney}
-                color="#C48900"
+                color="#FFDD55"
               />
             </NavLink>
             <NavLink to="/home" className="nav-link"  activeClassName="selected">
               <FontAwesomeIcon
                 className="headericons"
                 icon={faSearch}
-                color="#C48900"
+                color="#FFDD55"
               />
             </NavLink>
             {currentUser?(<ul className="navbar-nav">
@@ -55,7 +55,7 @@ const Header = () => {
                       className="nav-link"
                       activeClassName="selected"
                     >
-                      <FontAwesomeIcon icon={faStar} className="headericons" color="#C48900"/>
+                      <FontAwesomeIcon icon={faStar} className="headericons" color="#FFDD55"/>
                     </NavLink>
                   </li>
                   <li className="nav-item">
@@ -73,7 +73,7 @@ const Header = () => {
                   <FontAwesomeIcon
                     className="mx-2 headericons"
                     icon={faUser}
-                    color="#C48900"
+                    color="#FFDD55"
                   />
                 </NavLink>
                 )}

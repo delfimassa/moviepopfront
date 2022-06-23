@@ -32,7 +32,7 @@ const Home = () => {
               allMovies.map((e) => {
                 return (
                   <div className="col-sm-6 col-md-4 col-lg-3" key={e.id}>
-                    <Link to={`/movies/${e.id}`} className="hoverCards">
+                    <Link to={`/movies/${e.id}`} className="hoverCards titulos">
                       <MoviePreview
                         name={e.name}
                         image={e.image.medium? e.image.medium : e.image}

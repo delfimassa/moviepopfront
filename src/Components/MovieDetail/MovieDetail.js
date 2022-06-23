@@ -19,21 +19,35 @@ const MovieDetail = () => {
   }, [dispatch]);
 
   return (
-    <div className="text-light">
+    <div className="text-light contenedorDetail centrado">
       <section>
         {selectedMovie ? (
-          <div>
-            {console.log("selectedMovie:", selectedMovie)}
-            <img alt={selectedMovie.name} src={selectedMovie.image? selectedMovie.image : defaultimg} className="w-100"/>
-            <h1 className="text-center">Titulo: {selectedMovie.name}</h1>
-            <h5>Rating: {selectedMovie.rating}</h5>
-            <h5>Lenguaje: {selectedMovie.language}</h5>
-            <h5>Generos: {selectedMovie.genres}</h5>
-            <h5>Fecha de estreno: {selectedMovie.launching}</h5>
-            <h2 className="text-center">Sinopsis:</h2>
-            {selectedMovie.summary? <p className="text-center"> {selectedMovie.summary.replace(/<[^>]*>?/g, '')}</p> : 
-            <div className="text-center"><img src={loadingGif} alt="loading gif"/></div>
-          }
+          <div className="gameDeetCard">
+            <div className="gameDeetGrid">
+              <div className="titleAndImg">
+                {console.log("selectedMovie:", selectedMovie)}
+                <img
+                  alt={selectedMovie.name}
+                  src={selectedMovie.image ? selectedMovie.image : defaultimg}
+                  className="w-100"
+                />
+                <h1 className="text-center nolg noxl nomd my-4">{selectedMovie.name}</h1>
+              </div>
+              <div className="details">
+              <h1 className=" nosm noxs mb-4">{selectedMovie.name}</h1>
+
+                <h5>Rating: {selectedMovie.rating}</h5>
+                <h5>Lenguaje: {selectedMovie.language}</h5>
+                <h5>Generos: {selectedMovie.genres}</h5>
+                <h5>Fecha de estreno: {selectedMovie.launching}</h5>
+                <h2 className=" mt-4">Sinopsis:</h2>
+                {selectedMovie.summary ? (
+                  <p> {selectedMovie.summary.replace(/<[^>]*>?/g, "")}</p>
+                ) : (
+                  <img src={loadingGif} alt="loading gif"></img>
+                )}
+              </div>
+            </div>
           </div>
         ) : (
           <p>OOPS! Movie not found </p>
