@@ -1,0 +1,11 @@
+.tituloLanding{
+    font-weight: 700 !important;
+} 
+
+.logoYtitulo{
+    position:absolute;
+    left:50%;
+    top:50%;
+    margin-left:-166px;
+    margin-top:-166px
+}

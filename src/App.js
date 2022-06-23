@@ -4,23 +4,28 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import Navbar from "./Components/Common/Navbar";
 import Home from "./Components/Home/Home";
-import Footer from "./Components/Common/Footer";
+// import Footer from "./Components/Common/Footer";
 import MovieDetail from "./Components/MovieDetail/MovieDetail";
 import Landing from './Components/Landing';
+import Login from "./auth/Login";
+import Register from "./auth/Register";
+import Navbar from "./Components/Common/Navbar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <div className="App">
+    <div className="appMargin">
        <Router>
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Landing />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/moviedetail" element={<MovieDetail />} />
+          <Route path="/home" element={<Home />} />
+          <Route path='/movies/:id' element={<MovieDetail/>}/>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
         </Routes>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
     </div>
   );

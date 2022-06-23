@@ -1,0 +1,104 @@
+.allLogin {
+  overflow: hidden;
+  background-size: cover;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.6rem 1rem 1.6rem 1rem;
+}
+
+.contenedorFormulario {
+  padding: 3rem 3rem;
+  background-color: var(--blanco);
+  border-radius: 1rem;
+  box-shadow: 0px 6px 11px -8px rgb(0 0 0 / 90%);
+}
+
+.contenedorBotones {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.linkRegister {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.botonMostrarPass:focus{
+outline: none !important;
+box-shadow: 0 0 0 0 !important;
+}
+.btn-check:focus+.btn, .btn:focus{
+outline: none !important;
+box-shadow: 0 0 0 0 !important;
+}
+
+
+/*MEDIA QUERIES*/
+/*X-SMALL DEVICES */
+@media all and (max-width: 576px) {
+  .contenedorFormulario {
+    width: 90vw;
+  }
+}
+
+/*SMALL DEVICES*/
+@media all and (min-width: 576px) and (max-width: 767px) {
+  .contenedorFormulario {
+    width: 90vw;
+  }
+}
+
+/*MEDIUM DEVICES*/
+@media all and (min-width: 767px) and (max-width: 991px) {
+  .contenedorFormulario {
+    width: 80vw;
+    margin: 6rem 8rem;
+  }
+  .contenedorFormRegistro{
+    margin:2rem 2rem;
+  }
+}
+/* IPAD PRO */
+@media all and (min-width: 992px) and (max-width: 1050px) {
+  .contenedorFormulario {
+    width: 80vw;
+    margin: 19rem 8rem;
+  }
+  .contenedorFormRegistro{
+    margin:6.5rem 2rem;
+  }
+}
+/*LARGE DEVICES*/
+@media all and (min-width: 1051px) and (max-width: 1200px) {
+   
+  .contenedorFormulario {
+    width: 35vw;
+    margin: 19rem 8rem;
+  }
+  .contenedorFormRegistro{
+    margin:0rem 2rem !important;
+  }
+}
+
+/*XTRA LARGE DEVICES*/
+@media all and (min-width: 1200px) {
+   
+  .contenedorFormulario {
+    width: 35vw;
+  }
+  .contenedorFormRegistro{
+    margin:0rem 2rem;
+  }
+}
