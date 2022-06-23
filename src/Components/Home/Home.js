@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import loadingGif from "../../assets/img/loading2.svg";
 import Searchbar from "./Searchbar";
 import MoviePreview from "./MoviePreview";
+import defaultimg from "../../assets/img/clapperboard.png";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -28,14 +29,14 @@ const Home = () => {
         ) : allMovies.length ? (
           <div className="row">
             {
-            //   console.log("allMovies:", allMovies)
+              // console.log("allMovies:", allMovies)
               allMovies.map((e) => {
                 return (
                   <div className="col-sm-6 col-md-4 col-lg-3" key={e.id}>
                     <Link to={`/movies/${e.id}`} className="hoverCards titulos">
                       <MoviePreview
                         name={e.name}
-                        image={e.image.medium? e.image.medium : e.image}
+                        image={e.image} 
                         key={e.id}
                       />
                     </Link>
