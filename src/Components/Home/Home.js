@@ -28,15 +28,16 @@ const Home = () => {
           </div>
         ) : allMovies.length ? (
           <div className="row">
+            {console.log("allMovies:", allMovies)}
             {
-              // console.log("allMovies:", allMovies)
+              
               allMovies.map((e) => {
                 return (
                   <div className="col-sm-6 col-md-4 col-lg-3" key={e.id}>
                     <Link to={`/movies/${e.id}`} className="hoverCards titulos">
                       <MoviePreview
                         name={e.name}
-                        image={e.image} 
+                        image={(e.image)} 
                         key={e.id}
                       />
                     </Link>

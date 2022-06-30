@@ -5,7 +5,6 @@ import {
   Route,
 } from "react-router-dom";
 import Home from "./Components/Home/Home";
-// import Footer from "./Components/Common/Footer";
 import MovieDetail from "./Components/MovieDetail/MovieDetail";
 import Landing from './Components/Landing';
 import Login from "./auth/Login";
@@ -14,6 +13,7 @@ import Navbar from "./Components/Common/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
+
   return (
     <div className="appMargin">
        <Router>

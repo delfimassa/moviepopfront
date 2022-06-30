@@ -16,8 +16,8 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const currentUser = useSelector((state) => state.user);
-  const currentUser = true;
+  const currentUser = useSelector((state) => state.user);
+  // const currentUser = true;
 
   const logout = () => {
     if (currentUser) {
@@ -34,14 +34,14 @@ const Header = () => {
       <Navbar>
         <Container className="py-1 justify-content-end">
           <Nav>
-            <NavLink exact to="/" className="nav-link"  activeClassName="selected">
+            <NavLink exact to="/" className="nav-link"  >
               <FontAwesomeIcon
                 className="mx-2 headericons"
                 icon={faHouseChimney}
                 color="#FFDD55"
               />
             </NavLink>
-            <NavLink to="/home" className="nav-link"  activeClassName="selected">
+            <NavLink to="/home" className="nav-link" >
               <FontAwesomeIcon
                 className="headericons"
                 icon={faSearch}
@@ -53,7 +53,7 @@ const Header = () => {
                     <NavLink
                       to={`/favoritos`}
                       className="nav-link"
-                      activeClassName="selected"
+                      
                     >
                       <FontAwesomeIcon icon={faStar} className="headericons" color="#FFDD55"/>
                     </NavLink>
@@ -69,7 +69,7 @@ const Header = () => {
                     </button>
                   </li>
                 </ul>):(
-                  <NavLink exact to="/login" className="nav-link"  activeClassName="selected">
+                  <NavLink exact to="/login" className="nav-link"  >
                   <FontAwesomeIcon
                     className="mx-2 headericons"
                     icon={faUser}

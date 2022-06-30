@@ -84,31 +84,6 @@ const Login = () => {
       <div className={style.contenedorFormulario}>
         <div>
           <h1>Hola de nuevo!</h1>
-          <div className={style.checkbox}>
-            <div className="form-check form-switch">
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id="flexSwitchCheckDefault"
-                onClick={toggler}
-              />
-              {toggle ? (
-                <label
-                  className="form-check-label"
-                  for="flexSwitchCheckDefault"
-                >
-                  Negocio
-                </label>
-              ) : (
-                <label
-                  className="form-check-label"
-                  for="flexSwitchCheckDefault"
-                >
-                  Cliente
-                </label>
-              )}
-            </div>
-          </div>
         </div>
         <form onSubmit={onSubmit}>
           <div className="form-group">

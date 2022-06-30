@@ -17,7 +17,7 @@ const SearchBar = () => {
     e.preventDefault();
     if (name) {
       dispatch(getMoviesByName(name));
-      setName("");
+      // setName("");
       console.log(name);
     }
   }

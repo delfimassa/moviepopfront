@@ -1,3 +1,7 @@
+.fondoblanco{
+  background-color: whitesmoke !important;
+}
+
 .allLogin {
   overflow: hidden;
   background-size: cover;
@@ -9,13 +13,13 @@
   align-items: center;
   justify-content: center;
   padding: 1.6rem 1rem 1.6rem 1rem;
+  color: white !important;
 }
 
 .contenedorFormulario {
   padding: 3rem 3rem;
-  background-color: var(--blanco);
   border-radius: 1rem;
-  box-shadow: 0px 6px 11px -8px rgb(0 0 0 / 90%);
+  box-shadow: 5px 9px 9px 7px rgb(0 0 0 / 90%);
 }
 
 .contenedorBotones {

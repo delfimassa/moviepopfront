@@ -9,7 +9,7 @@
 }
 
 .searchBar:focus,
-.btn:focus {
+.btn:focus, .textarea:focus {
   background-color: #3a4957 !important;
   border: none !important;
   border-radius: 0.5rem !important;

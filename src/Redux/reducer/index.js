@@ -30,6 +30,9 @@ export default function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
+      case "POST_USER":
+        return { ...state };
+
     case "WAITING":
       return {
         ...state,

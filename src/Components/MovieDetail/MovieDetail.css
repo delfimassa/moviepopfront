@@ -85,5 +85,6 @@
     .details {
         margin-top: 2rem;
         text-align: start;
+        /* align-items: center; */
     }
 }
