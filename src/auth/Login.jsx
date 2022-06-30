@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import {loginGoogleInitiate , getUserMongo } from "../Redux/actions/user";
+import { getUserMongo } from "../Redux/actions/user";
 import style from "./styles/Login.module.css";
 // import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -73,11 +73,6 @@ const Login = () => {
     setState({ email: "", password: "" });
   };
 
-  const loginGoogle = () => {
-    dispatch(loginGoogleInitiate());
-    dispatch(getUserMongo(currentUser.email));
-  };
-
 
   return (
     <div className={style.allLogin}>
@@ -140,14 +135,14 @@ const Login = () => {
             <button type="submit" className="btn btn-outline-primary">
               Iniciar Sesion
             </button>
-            <button
+            {/* <button
               type="submit"
               value="Iniciar Sesión con Google"
               onClick={loginGoogle}
               className="btn btn-outline-primary"
             >
               Iniciar con Google
-            </button>
+            </button> */}
           </div>
         </form>
         <Link to={"/register"}>

@@ -42,6 +42,12 @@ const NuevaCuenta = () => {
     pswdMatch: "",
   });
 
+  // useEffect(() => {
+  //   if (currentUser) {
+  //     navigate("/home");
+  //   }
+  // }, [currentUser, navigate]);
+
   function handleChange(e) {
     setInput({
       ...input,
@@ -254,7 +260,7 @@ const NuevaCuenta = () => {
               Registrar Cuenta
             </button>
 
-            <button
+            {/* <button
               type="submit"
               value="Iniciar Sesión con Google"
               // onClick={loginGoogle}
@@ -262,7 +268,7 @@ const NuevaCuenta = () => {
             >
               {" "}
               Iniciar con Google
-            </button>
+            </button> */}
           </div>
         </form>
       </div>

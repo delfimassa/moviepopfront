@@ -3,9 +3,6 @@ export const REGISTER = "REGISTER";
 export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 //login
-export const LOGIN_GOOGLE = "LOGIN_GOOGLE_ADMIN";
-export const LOGIN_GOOGLE_SUCCESS = "LOGIN_GOOGLE_ADMIN_SUCCESS";
-export const LOGIN_GOOGLE_FAIL = "LOGIN_GOOGLE_ADMIN_FAIL";
 // export const LOGIN = "LOGIN";
 // export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 // export const LOGIN_FAIL = "LOGIN_FAIL";
@@ -26,6 +23,5 @@ export const  POST_REVIEW = "POST_REVIEW";
 export const GET_REVIEWS = "GET_REVIEWS";
 
 
-export const POST_PELUQUERIA = 'POST_PELUQUERIA';
 export const GET_USERMONGO = 'GET_USERMONGO'
 

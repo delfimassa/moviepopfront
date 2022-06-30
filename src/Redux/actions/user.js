@@ -71,57 +71,6 @@ export function registerInitiate(name, email, password) {
   };
 }
 
-
-//LOGIN GOOGLE
-export function loginGoogle() {
-  return {
-    type: LOGIN_GOOGLE,
-  };
-}
-
-export function loginGoogleSuccess(user) {
-  return {
-    type: LOGIN_GOOGLE_SUCCESS,
-    payload: user,
-  };
-}
-
-export function loginGoogleFail(error) {
-  return {
-    type: LOGIN_GOOGLE_FAIL,
-    payload: error,
-  };
-}
-
-export function loginGoogleInitiate() {
-  return async function (dispatch) {
-    dispatch(loginGoogle());
-    try {
-      let user = await signInWithPopup(auth, provider);
-      dispatch(loginGoogleSuccess(user));
-      console.log("uid loguin =>" + user.user.uid);
-
-      const hola = await getUsersId();
-      const filterHola = hola.find((e) => e === user.user.uid);
-      console.log(user);
-      console.log(filterHola);
-      const payloadGoogle = {
-        name: user.user.displayName,
-        username: user.user.email,
-        password: user.user.uid,
-      };
-
-      if (!filterHola) {
-        dispatch(postClient(payloadGoogle));
-        await createUserDocument(user, user.user.displayName);
-      }
-    } catch (error) {
-      dispatch(loginGoogleFail(error));
-      console.log(error.message);
-    }
-  };
-}
-
 //LOGOUT
 export function logout() {
   return {
@@ -176,17 +125,4 @@ export function getUserMongo(username){
 }
 
 
-export function postClient(payload) {
-  return async function (dispatch) {
-    const response = await axios
-      .post("http://localhost:4000/clients/create", payload)
-      .then((client) => {
-        dispatch({
-          type: POST_PELUQUERIA,
-          payload: client,
-        });
-      });
 
-    return response;
-  };
-}

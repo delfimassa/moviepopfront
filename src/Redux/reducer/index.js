@@ -5,6 +5,7 @@ const initialState = {
 //   reviews: [],
 //   createdReview: [],
   loading: false,
+  currentUser: null,
 };
 
 export default function rootReducer(state = initialState, action) {
@@ -30,8 +31,8 @@ export default function rootReducer(state = initialState, action) {
         detail: action.payload,
       };
 
-      case "POST_USER":
-        return { ...state };
+      case "REGISTER_SUCCESS":
+        return { ...state, currentUser: action.payload, };
 
     case "WAITING":
       return {
