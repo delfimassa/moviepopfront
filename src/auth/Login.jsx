@@ -1,77 +1,111 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { getUserMongo } from "../Redux/actions/user";
+import { getUser } from "../Redux/actions/user";
 import style from "./styles/Login.module.css";
 // import Swal from "sweetalert2";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+
 
 const Login = () => {
-  const [showPassword, setShowPassword] = useState("ocultar");
-  
-  function mostrarOcultar(flag, e){
-    e.preventDefault();
-    setShowPassword(flag);
-  }
-
-  // State para iniciar sesión
-  const [state, setState] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [toggle, setToggle] = useState(false);
-
-  const toggler = () => {
-    toggle ? setToggle(false) : setToggle(true);
-  };
-
-  //extraer de usario
-  const { email, password } = state;
-
-  const currentUser = useSelector((state) => state.user);
-
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const currentUser = useSelector((state) => state.currentUser);
+
   useEffect(() => {
     if (currentUser) {
+      console.log("currentUser en useEffect del Login:", currentUser)
       navigate("/home");
-      dispatch(getUserMongo(currentUser.email))
     }
   }, [currentUser, navigate]);
 
-  const onChange = (e) => {
-    setState({
-      ...state,
+  // const dispatch = useDispatch();
+  const [showPassword, setShowPassword] = useState("ocultar");
+  function mostrarOcultar(flag, e) {
+    e.preventDefault();
+    setShowPassword(flag);
+  }
+  const [input, setInput] = useState({
+    email: "",
+    password: ""
+  });
+  const [errors, setErrors] = useState({
+    email: "",
+    password: ""
+  });
+
+
+   function handleChange(e){
+    setInput({
+      ...input,
       [e.target.name]: e.target.value,
     });
+    setErrors(
+      validate({
+        ...input,
+        [e.target.name]: e.target.value,
+      })
+    );
+   }
+
+
+   const validate = (input) => {
+    let errores = {};
+    if (!input.email) {
+      errores.email = "Required email*";
+    }
+    if (!input.password) {
+      errores.password = "Required passwords*";
+    }
+    return errores;
   };
 
-  //Cuando usuario quiere iniciar sesión
-  const onSubmit = (e) => {
+
+  async function handleSubmit(e){
     e.preventDefault();
-
-    //Validar que no haya campos vacíos
-    if (!email || !password) {
-      // Swal.fire(
-      //   "Ups!",
-      //   "Por favor completa todos los campos",
-      //   "error"
-      // );
-      return;
-    }
-    //Pasarlo al reducer
-    if (toggle) {
-      // dispatch(loginAdminInitiate(email, password));
+    console.log("input: ", input);
+    if (
+      errors.email ||
+      errors.password 
+    ) {
+      alert(
+        errors.username ||
+          errors.password 
+      );
     } else {
-      // dispatch(loginInitiate(email, password));
-      dispatch(getUserMongo(email));
-    }
-    // dispatch(loginInitiate(email, password));
-    setState({ email: "", password: "" });
-  };
+      try{
+        let userLogging = {
+          email: input.email,
+          password: input.password,
+        };
+  
+        console.log("userLogging: ", userLogging);
+        let postResponse = await axios.post(`http://localhost:3001/user`, userLogging);
+        console.log("postResponse.data:", postResponse.data);
+        console.log("postResponse.status:", postResponse.status);
+  
+        if (postResponse.status === 200) {
+          alert("Usuario logueado con exito! :)");
+          setInput({
+          email: "",
+          password: ""
+        });
+        dispatch(getUser(userLogging.email));
+        navigate("/home");
+        // console.log("currentUser desde handleSubmit Login:", currentUser)
+        } 
+      }catch(err){alert(
+        "Lo sentimos, por favor asegurate de probar con un email registrado y contraseña correctos"
+      );
+      setInput({
+      email: "",
+      password: ""
+    });}
+
+  }}
 
 
   return (
@@ -80,7 +114,7 @@ const Login = () => {
         <div>
           <h1>Hola de nuevo!</h1>
         </div>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="email" className="form-label mt-4">
               Email
@@ -89,8 +123,8 @@ const Login = () => {
               type="email"
               id="email"
               name="email"
-              value={email}
-              onChange={onChange}
+              value={input.email}
+              onChange={handleChange}
               className="form-control"
               aria-describedby="emailHelp"
               placeholder="ejemplo@hairup.com"
@@ -109,8 +143,8 @@ const Login = () => {
                   type="text"
                   id="password"
                   name="password"
-                  value={password}
-                  onChange={onChange}
+                  value={input.password}
+                  onChange={handleChange}
                   className="form-control"
                   placeholder="Contraseña"
                 />
@@ -122,8 +156,8 @@ const Login = () => {
                   type="password"
                   id="password"
                   name="password"
-                  value={password}
-                  onChange={onChange}
+                  value={input.password}
+                  onChange={handleChange}
                   className="form-control"
                   placeholder="********"
                 />

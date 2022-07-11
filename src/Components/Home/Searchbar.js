@@ -29,7 +29,7 @@ const SearchBar = () => {
         className="searchBar p-2 mb-4 form-control text-light"
           type="text"
           value={name}
-          placeholder="Buscar"
+          placeholder="Search..."
           onChange={(e) => handleInputChange(e)}
         ></input>
         </div>

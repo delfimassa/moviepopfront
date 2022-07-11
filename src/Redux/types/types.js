@@ -1,6 +1,5 @@
 //register
 export const REGISTER = "REGISTER";
-export const REGISTER_SUCCESS = "REGISTER_SUCCESS";
 export const REGISTER_FAIL = "REGISTER_FAIL";
 //login
 // export const LOGIN = "LOGIN";
@@ -23,5 +22,5 @@ export const  POST_REVIEW = "POST_REVIEW";
 export const GET_REVIEWS = "GET_REVIEWS";
 
 
-export const GET_USERMONGO = 'GET_USERMONGO'
+export const GET_USER = 'GET_USER'
 

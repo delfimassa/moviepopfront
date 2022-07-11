@@ -51,10 +51,10 @@ const MovieDetail = () => {
                   readonly={true}
                   size={"35px"}
                 /></div>
-                <h5>Lenguaje: {selectedMovie.language}</h5>
-                <h5>Generos: {selectedMovie.genres}</h5>
-                <h5>Fecha de estreno: {selectedMovie.launching}</h5>
-                <h2 className="mt-4">Sinopsis:</h2>
+                <h5>Language: {selectedMovie.language}</h5>
+                <h5>Genres: {selectedMovie.genres}</h5>
+                <h5>Release date: {selectedMovie.launching}</h5>
+                <h2 className="mt-4">Synopsis:</h2>
                 {selectedMovie.summary ? (
                   <p> {selectedMovie.summary.replace(/<[^>]*>?/g, "")}</p>
                 ) : (

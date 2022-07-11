@@ -30,9 +30,17 @@ export default function rootReducer(state = initialState, action) {
         ...state,
         detail: action.payload,
       };
+      case "GET_USER":
+      return {
+        ...state,
+        currentUser: action.payload,
+      };
 
-      case "REGISTER_SUCCESS":
+      case "REGISTER":
         return { ...state, currentUser: action.payload, };
+
+      case "LOGOUT":
+          return{...state, currentUser: action.payload}
 
     case "WAITING":
       return {

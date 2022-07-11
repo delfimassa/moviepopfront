@@ -53,13 +53,3 @@ export function getMoviesByName(name) {
   };
 }
 
-
-export function postUser(payload) {
-  return async function () {
-    try {
-      await axios.post("http://localhost:3001/user", payload);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}

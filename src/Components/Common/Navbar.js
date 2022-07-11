@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, Container } from "react-bootstrap";
@@ -10,23 +10,24 @@ import {
   faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Header.css";
-import { logoutInitiate } from "../../Redux/actions/user";
+import { logoutAction } from "../../Redux/actions/user";
 
 const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const currentUser = useSelector((state) => state.user);
-  // const currentUser = true;
+  const currentUser = useSelector((state) => state.currentUser);
+
+ 
 
   const logout = () => {
     if (currentUser) {
-      dispatch(logoutInitiate());
+      dispatch(logoutAction());
       navigate("/");
     } else {
       alert("No estas logueado");
     }
-    console.log(currentUser);
+    console.log("currentUser AL FINAL DE LOGOUT() EN NAVBAR", currentUser);
   };
 
   return (

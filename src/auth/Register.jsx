@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-// import {
-//   registerInitiate,
-//   loginGoogleInitiate,
-//   postClient,
-// } from "../Redux/actions/user";
+import {
+ getUser
+} from "../Redux/actions/user";
 import style from "./styles/Login.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -13,10 +11,13 @@ import axios from "axios";
 
 const NuevaCuenta = () => {
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const currentUser = useSelector((state) => state.currentUser);
 
   useEffect(() => {
     if (currentUser) {
+      console.log("currentUser desde useEffect Register:", currentUser)
       navigate("/home");
     }
   }, [currentUser, navigate]);
@@ -42,11 +43,7 @@ const NuevaCuenta = () => {
     pswdMatch: "",
   });
 
-  // useEffect(() => {
-  //   if (currentUser) {
-  //     navigate("/home");
-  //   }
-  // }, [currentUser, navigate]);
+ 
 
   function handleChange(e) {
     setInput({
@@ -86,12 +83,14 @@ const NuevaCuenta = () => {
     console.log("input: ", input);
     if (
       errors.username ||
+      errors.email||
       errors.password ||
       errors.passwordConfirm ||
       errors.pswdMatch
     ) {
       alert(
         errors.username ||
+        errors.email||
           errors.password ||
           errors.passwordConfirm ||
           errors.pswdMatch
@@ -118,7 +117,9 @@ const NuevaCuenta = () => {
         passwordConfirm: "",
       });
       //login
-      // navigate("/home");
+       dispatch(getUser(newUser.email));
+       console.log("currentUser desde handlesubmit Register", currentUser)
+      navigate("/home");
       } 
       }catch(err){
         alert(

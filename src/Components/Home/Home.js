@@ -16,11 +16,15 @@ const Home = () => {
   const allMovies = useSelector((state) => state.movies);
   const loading = useSelector((state) => state.loading);
 
+  const currentUser = useSelector((state) => state.currentUser);
+
+  console.log("currentUser desde Home: ", currentUser);
+  
   return (
     <div className="text-light">
       <Searchbar />
       <div className="text-center">
-        <h4 className="mb-4">Películas</h4>
+        <h4 className="mb-4">Movies & Shows</h4>
         <hr />
         {loading ? (
           <div className="loader">
